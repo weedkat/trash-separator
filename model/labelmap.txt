@@ -1,0 +1,23 @@
+Battery
+Cardboard
+Carton
+Chopstick
+Cigarette
+Facemask
+Glass Bottle
+Glass Other
+Glass Tableware
+Metal Can
+Metal Foil
+Metal Other
+Newspaper
+Paper Cup
+Paper Other
+Plastic Bag
+Plastic Bottle
+Plastic Cup
+Plasic Other
+Styrofoam Cup
+Styrofoam Other
+Tissue
+Toothpick
