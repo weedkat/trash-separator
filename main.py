@@ -86,7 +86,6 @@ def main():
         print("Something went wrong")
     else:
         print("All module loaded")
-
     # Set up path for prediction results
     prediction_result_path = "classified-image"
     img_path = f"{prediction_result_path}/images"
