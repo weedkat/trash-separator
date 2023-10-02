@@ -1,0 +1,142 @@
+name,pred_category,pred_subcategory,probability,classifying_time_ms
+image-0.jpeg,Daur Ulang,Carton,0.73424613,0.473
+image-1.jpeg,Daur Ulang,Carton,0.9992536,0.418
+image-2.jpeg,Daur Ulang,Carton,0.48771352,0.428
+image-3.jpeg,Daur Ulang,Carton,0.99751794,0.433
+image-4.jpeg,Daur Ulang,Carton,0.9998105,0.416
+image-5.jpeg,Guna Ulang,Metal Other,0.5805439,0.417
+image-6.jpeg,Daur Ulang,Carton,0.887642502784729,0.471
+image-7.jpeg,Daur Ulang,Carton,0.6739593148231506,0.42
+image-8.jpeg,Guna Ulang,Metal Can,0.9417455792427064,0.416
+image-9.jpeg,Guna Ulang,Plastic Bag,0.743246853351593,0.428
+image-10.jpeg,Guna Ulang,Metal Can,0.9034942388534546,0.419
+image-11.jpeg,Daur Ulang,Paper Other,0.3956769704818725,0.414
+image-12.jpeg,Daur Ulang,Carton,0.9902104139328004,0.418
+image-13.jpeg,Guna Ulang,Styrofoam Cup,0.5482691526412964,0.417
+image-14.jpeg,Daur Ulang,Carton,0.9903967380523682,0.426
+image-15.jpeg,Daur Ulang,Carton,0.4714767038822174,0.417
+image-16.jpeg,Daur Ulang,Paper Other,0.715089738368988,0.422
+image-17.jpeg,Daur Ulang,Paper Other,0.7916452288627625,0.418
+image-18.jpeg,Daur Ulang,Carton,0.9770192503929138,0.422
+image-19.jpeg,Daur Ulang,Paper Other,0.5509214401245117,0.425
+image-20.jpeg,Daur Ulang,Cardboard,0.569564938545227,0.423
+image-21.jpeg,Daur Ulang,Cardboard,0.9855682253837584,0.418
+image-22.jpeg,Daur Ulang,Paper Other,0.9961426854133606,0.415
+image-23.jpeg,Daur Ulang,Paper Other,0.345757782459259,0.423
+image-24.jpeg,Daur Ulang,Paper Other,0.693471372127533,0.415
+image-25.jpeg,Daur Ulang,Paper Other,0.7082221508026123,0.429
+image-26.jpeg,Guna Ulang,Metal Foil,0.4932142794132232,0.419
+image-27.jpeg,Guna Ulang,Plastic Bag,0.7321515679359436,0.419
+image-28.jpeg,Guna Ulang,Metal Can,0.4708997905254364,0.433
+image-29.jpeg,Guna Ulang,Glass Tableware,0.6017801761627197,0.414
+image-30.jpeg,Guna Ulang,Plastic Bag,0.9985767602920532,0.415
+image-31.jpeg,Guna Ulang,Plastic Bag,0.5295019745826721,0.477
+image-32.jpeg,Daur Ulang,Paper Other,0.6760410666465759,0.416
+image-33.jpeg,Guna Ulang,Plastic Bag,0.6858262419700623,0.418
+image-34.jpeg,Daur Ulang,Paper Other,0.5874170660972595,0.421
+image-35.jpeg,Daur Ulang,Paper Cup,0.999970555305481,0.413
+image-36.jpeg,Daur Ulang,Paper Cup,0.9995774626731871,0.408
+image-37.jpeg,Daur Ulang,Paper Cup,0.890414834022522,0.407
+image-38.jpeg,Daur Ulang,Paper Cup,0.999927282333374,0.408
+image-39.jpeg,Daur Ulang,Paper Cup,0.9999556541442872,0.412
+image-40.jpeg,Daur Ulang,Paper Cup,0.9966831803321838,0.405
+image-41.jpeg,Daur Ulang,Paper Cup,0.981939733028412,0.406
+image-42.jpeg,Daur Ulang,Paper Cup,0.9898425936698914,0.409
+image-43.jpeg,Guna Ulang,Metal Other,0.9018726348876952,0.405
+image-44.jpeg,Guna Ulang,Metal Other,0.9591541886329652,0.407
+image-45.jpeg,Guna Ulang,Metal Other,0.3793809413909912,0.407
+image-46.jpeg,Guna Ulang,Plastic Bag,0.6879926323890686,0.408
+image-47.jpeg,Daur Ulang,Paper Other,0.9063869118690492,0.41
+image-48.jpeg,Guna Ulang,Glass Other,0.8416203260421753,0.41
+image-49.jpeg,Daur Ulang,Paper Other,0.6742019057273865,0.424
+image-50.jpeg,Residu,Tissue,0.9340593814849854,0.436
+image-51.jpeg,Daur Ulang,Paper Other,0.99753737449646,0.414
+image-52.jpeg,Residu,Tissue,0.9999589920043944,0.418
+image-53.jpeg,Residu,Tissue,0.9886154532432556,0.417
+image-54.jpeg,Residu,Tissue,0.9999204874038696,0.428
+image-55.jpeg,Residu,Tissue,0.999433696269989,0.42
+image-56.jpeg,Residu,Tissue,0.9173793196678162,0.416
+image-57.jpeg,Residu,Tissue,0.9999971389770508,0.422
+image-58.jpeg,Residu,Tissue,0.9997346997261048,0.417
+image-59.jpeg,Residu,Tissue,0.9979612827301024,0.418
+image-60.jpeg,Residu,Tissue,0.9978551268577576,0.418
+image-61.jpeg,Residu,Tissue,0.9999525547027588,0.418
+image-62.jpeg,Residu,Tissue,0.9976402521133424,0.417
+image-63.jpeg,Residu,Tissue,0.8298099637031555,0.416
+image-64.jpeg,Guna Ulang,Metal Foil,0.7502179145812988,0.416
+image-65.jpeg,Daur Ulang,Paper Other,0.9968491196632384,0.418
+image-66.jpeg,Daur Ulang,Paper Other,0.9620153307914734,0.42
+image-67.jpeg,Guna Ulang,Glass Other,0.3777628242969513,0.438
+image-68.jpeg,Guna Ulang,Metal Foil,0.3320959508419037,0.418
+image-69.jpeg,Guna Ulang,Glass Bottle,0.1851577162742614,0.419
+image-70.jpeg,Residu,Cigarette,0.8014474511146545,0.421
+image-71.jpeg,Daur Ulang,Paper Other,0.3809774816036224,0.415
+image-72.jpeg,Guna Ulang,Metal Can,0.9999217987060548,0.417
+image-73.jpeg,Daur Ulang,Paper Other,0.9914584755897522,0.423
+image-74.jpeg,Guna Ulang,Metal Can,0.9938074946403505,0.412
+image-75.jpeg,Daur Ulang,Paper Other,0.9289422035217284,0.417
+image-76.jpeg,Daur Ulang,Paper Other,0.9247198104858398,0.425
+image-77.jpeg,Daur Ulang,Paper Other,0.9314220547676086,0.417
+image-78.jpeg,Guna Ulang,Metal Can,0.9323574304580688,0.417
+image-79.jpeg,Guna Ulang,Metal Can,0.9962602853775024,0.415
+image-80.jpeg,Guna Ulang,Metal Can,0.9984762072563172,0.421
+image-81.jpeg,Daur Ulang,Paper Other,0.9997448325157166,0.425
+image-82.jpeg,Daur Ulang,Paper Other,0.994929850101471,0.423
+image-83.jpeg,Daur Ulang,Paper Other,0.9758179187774658,0.42
+image-84.jpeg,Daur Ulang,Paper Other,0.9841274619102478,0.416
+image-85.jpeg,Guna Ulang,Metal Can,0.897855281829834,0.414
+image-86.jpeg,Guna Ulang,Metal Other,0.9903500080108644,0.415
+image-87.jpeg,Daur Ulang,Paper Cup,0.7960814237594604,0.424
+image-88.jpeg,Guna Ulang,Metal Can,0.5586847066879272,0.421
+image-89.jpeg,Guna Ulang,Metal Other,0.7458537220954895,0.427
+image-90.jpeg,Guna Ulang,Metal Other,0.9621383547782898,0.417
+image-91.jpeg,B3,Facemask,0.999996304512024,0.417
+image-92.jpeg,B3,Facemask,0.999935269355774,0.423
+image-93.jpeg,B3,Facemask,0.949552595615387,0.418
+image-94.jpeg,B3,Facemask,0.7134404182434082,0.417
+image-95.jpeg,B3,Facemask,0.9755634665489196,0.42
+image-96.jpeg,Guna Ulang,Plastic Bag,0.9989445805549622,0.413
+image-97.jpeg,Guna Ulang,Plastic Bag,0.692063570022583,0.471
+image-98.jpeg,B3,Facemask,0.878787100315094,0.411
+image-99.jpeg,Daur Ulang,Paper Other,0.993675172328949,0.418
+image-100.jpeg,Guna Ulang,Plastic Bag,0.9606834053993224,0.418
+image-101.jpeg,Daur Ulang,Paper Other,0.99954092502594,0.418
+image-102.jpeg,Daur Ulang,Paper Other,0.9672034978866576,0.413
+image-103.jpeg,Guna Ulang,Metal Foil,0.99834942817688,0.484
+image-104.jpeg,Guna Ulang,Metal Can,0.9808310866355896,0.433
+image-105.jpeg,Guna Ulang,Metal Foil,0.9998443126678468,0.416
+image-106.jpeg,Guna Ulang,Metal Foil,0.9611644744873048,0.419
+image-107.jpeg,Guna Ulang,Metal Foil,0.5311241149902344,0.411
+image-108.jpeg,Guna Ulang,Metal Can,0.2926268875598907,0.423
+image-109.jpeg,Guna Ulang,Metal Foil,0.9733994007110596,0.469
+image-110.jpeg,Guna Ulang,Metal Foil,0.9996368885040284,0.422
+image-111.jpeg,Daur Ulang,Paper Other,0.9794734120368958,0.42
+image-112.jpeg,Daur Ulang,Paper Other,0.9923571348190308,0.423
+image-113.jpeg,Organik,Chopstick,0.7441877722740173,0.417
+image-114.jpeg,Organik,Chopstick,0.9435302019119264,0.417
+image-115.jpeg,Daur Ulang,Paper Other,0.870287299156189,0.418
+image-116.jpeg,Guna Ulang,Metal Foil,0.812270998954773,0.424
+image-117.jpeg,Organik,Chopstick,0.9748762249946594,0.42
+image-118.jpeg,Organik,Chopstick,0.6681182384490967,0.418
+image-119.jpeg,Daur Ulang,Paper Other,0.9915226697921752,0.419
+image-120.jpeg,Daur Ulang,Paper Other,0.9846290349960328,0.424
+image-121.jpeg,Daur Ulang,Paper Other,0.4337760806083679,0.474
+image-122.jpeg,Guna Ulang,Metal Foil,0.6946981549263,0.415
+image-123.jpeg,Organik,Chopstick,0.9997429251670837,0.473
+image-124.jpeg,Guna Ulang,Plasic Other,0.9071200489997864,0.414
+image-125.jpeg,Guna Ulang,Glass Bottle,0.5112310647964478,0.413
+image-126.jpeg,Guna Ulang,Metal Foil,0.6579969525337219,0.418
+image-127.jpeg,Guna Ulang,Plastic Bottle,0.9087582230567932,0.432
+image-128.jpeg,Guna Ulang,Plastic Bottle,0.6510388255119324,0.412
+image-129.jpeg,Guna Ulang,Plastic Bottle,0.9999983310699463,0.43
+image-130.jpeg,Guna Ulang,Plastic Bottle,0.9999988079071045,0.409
+image-131.jpeg,Guna Ulang,Metal Can,0.9437539577484131,0.413
+image-132.jpeg,Guna Ulang,Metal Can,0.9970301389694214,0.405
+image-133.jpeg,Daur Ulang,Paper Cup,0.6809832453727722,0.414
+image-134.jpeg,Guna Ulang,Plastic Bottle,0.549963653087616,0.413
+image-135.jpeg,Guna Ulang,Plastic Bag,0.9999986886978149,0.409
+image-136.jpeg,Guna Ulang,Plastic Bag,0.9999964237213135,0.41
+image-137.jpeg,Guna Ulang,Plastic Bag,0.9999978542327881,0.42
+image-138.jpeg,Guna Ulang,Plastic Bag,0.9990683197975159,0.42
+image-139.jpeg,Guna Ulang,Plastic Bag,0.9775856733322144,0.417
+image-140.jpeg,Guna Ulang,Plastic Bag,0.9448595643043518,0.41

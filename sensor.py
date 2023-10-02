@@ -35,7 +35,7 @@ class DistanceSensor:
             time.sleep(0.5)
             
             # Average distance after n times reading for more accurate default distance
-            self.update_default()
+            self.DEFAULT_DIST = median([self.check_distance() for _ in range(10)])
         
         except:
             print("Something went wrong")
@@ -51,15 +51,21 @@ class DistanceSensor:
         time.sleep(0.00001)
         GPIO.output(self.GPIO_TRIGGER, False)
         start = time.time()
+        stop = 0
 
         # Start time before echo picked up sounds
-        while GPIO.input(self.GPIO_ECHO)==0:
+        i = 0
+        while GPIO.input(self.GPIO_ECHO) == 0 and i < 10000:
             start = time.time()
+            i += 1
 
         # Stop time after echo picked up sounds
         while GPIO.input(self.GPIO_ECHO)==1:
             stop = time.time()
-          
+        
+        if stop == 0:
+            return self.DEFAULT_DIST
+        
         # Calculate pulse length
         elapsed = stop-start
 
@@ -72,28 +78,29 @@ class DistanceSensor:
         distance = distance / 2
         
         # Need time for the sensors to settle down
-        time.sleep(0.1)
+        time.sleep(0.01)
         
-        return distance	
-
-    def check_object(self, error_margin = 0.4, n_check = 10):
+        return distance
+    
+    def object_present(self, dist, error_margin = 3.0):
         # The reading is volatile, need error margin to compensate
-        # Pick the middle value from distance reading
-        dist = median([self.check_distance() for _ in range(n_check)])
-        
         # dist < default if the distance sensor bounce of the object
         # dist > default if the distance sensor bounce of the platform
         # both condition indicates that there is an object present
-        is_object_present = dist < self.DEFAULT_DIST - error_margin or dist > self.DEFAULT_DIST + error_margin
+        return dist < self.DEFAULT_DIST - error_margin or dist > self.DEFAULT_DIST + error_margin
+
+    def check_object(self, n_check = 10):
+        dist = median([self.check_distance() for _ in range(n_check)])
+        is_object_present = self.object_present(dist)
             
-        # Update default distance if there is no object present
-        if abs(self.DEFAULT_DIST - dist) < error_margin:
-            self.update_default()
+        print(dist, self.DEFAULT_DIST)
             
         return is_object_present
 
-    def update_default(self, n_check = 10):
-        self.DEFAULT_DIST = mean([self.check_distance() for _ in range(n_check)])
+    def update_default(self, error_margin = 2.0, n_check = 10):     
+        new_default_dist = median([self.check_distance() for _ in range(n_check)])
+        if abs(self.DEFAULT_DIST - new_default_dist) < error_margin:
+            self.DEFAULT_DIST = new_default_dist
 
 class IRSensor:
     def __init__(self, ir_pin = 26, mode = 'BCM'):
@@ -132,10 +139,13 @@ def main():
     distance_sensor = DistanceSensor()
     i = 0
     while True:
-        print(f'{i}|', "object on platform", distance_sensor.check_object())
+        is_object_present = distance_sensor.check_object()
+        print(f'{i}|', "object on platform", is_object_present)
         print(f'{i}|', "infrared sensor", ir_sensor.check_object())
         time.sleep(1)
         i += 1
+        if is_object_present:
+            break
 
 if __name__ == "__main__":
     main()

@@ -6,12 +6,18 @@ import math
 import os
 
 class ImageClassifier:
-    def __init__(self, path, model_name, label_name, category_name):
+    def __init__(self, path = None, model_name = None, label_name = "labelmap.txt", category_name = "category.txt"):
         try:
             # Set path
-            model_path = f"{path}/{model_name}"
             label_path = f"{path}/{label_name}"
             category_path = f"{path}/{category_name}"
+            model_path = f"{path}/{model_name}"
+            
+            if model_name == None:
+                for file in os.listdir(path):
+                    if file.endswith(".tflite"):
+                        model_path = f"{path}/{file}"
+                        break
             
             # Check if path exist
             if not (os.path.exists(model_path)) :
@@ -114,7 +120,7 @@ def preprocess_img(image, size):
 
 # Just for testing
 def main():
-    image_classifier = ImageClassifier("model", "inceptionV3.tflite", "labelmap.txt", "category.txt")
+    image_classifier = ImageClassifier("model")
     image = preprocess_img(Image.open("image_test_from_module.jpg"), image_classifier.get_input_shape())
     result = image_classifier.classify_image(image)
     print(result)

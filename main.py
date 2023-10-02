@@ -1,71 +1,128 @@
 from PIL import Image
-from tensorflow.keras.utils import img_to_array, load_img
-from pathlib import Path
 import numpy as np
+import pandas as pd
 import time
-import tensorflow as tf
-import math
 import os
 import glob
+
 import sensor
 import oled
 import camera
 import servo
 import classify
 
-LOOPTIME = 1.0
-i = 1
+# Function for dumping trash according to predicted category
+def dump_trash_category(dump_trash, category):
+    if category == "Daur Ulang":
+        dump_trash.dump_trash_front()
+    elif category == "Guna Ulang":
+        dump_trash.dump_trash_front_right()
+    elif category == "B3":
+        dump_trash.dump_trash_back_right()
+    elif category == "Organik":
+        dump_trash.dump_trash_back_left()
+    elif category == "Residu":
+        dump_trash.dump_trash_front_left()
+    else:
+        raise ValueError(f"Cateogry {category} is not valid")
 
-while True:
-    # Update oled screen
-    oled.update([("Ready...", 0, 8)])
-    if sensor.check_obj() and sensor.check_obj(): # Check if there is an object, takes about a second
+# Display result on the tiny oled screen
+def oled_update_result(oled_screen, result):
+    pred_category = result['category']
+    pred_sub_category = result['sub_category']
+    pred_prob = result['probability']
+    pred_time = result['time']
+    
+    oled_screen.display_text(
+        f"{pred_category} prob : {pred_prob}",
+        f"{pred_sub_category} {pred_time} ms"
+        )
+
+# Save image and it's prediction result
+def save_prediction_result(image, result, df, img_path, csv_path):
+    if not os.path.exists(img_path) :
+        os.makedirs(img_path)
+    
+    # File increment
+    i = 0
+    while os.path.exists(f"{img_path}/image-{i}.jpeg"):
+        i += 1
+    
+    img_name = f"image-{i}.jpeg"
+    image.save(f"{img_path}/{img_name}")
+    columns = ['name', 'pred_category', 'pred_subcategory','probability', 'classifying_time_ms']
+    
+    pred_category = result['category']
+    pred_sub_category = result['sub_category']
+    pred_prob = result['probability']
+    pred_time = result['time']    
+    
+    df.loc[i, columns] = [img_name, pred_category, pred_sub_category, pred_prob, pred_time]
+    
+    df.to_csv(csv_path, index = False)
+
+# Load previous dataframe if exist
+def load_dataframe(path = None):
+    columns = ['name', 'pred_category', 'pred_subcategory','probability', 'classifying_time_ms']
+    
+    df = pd.DataFrame(columns = columns)
+    
+    if path and os.path.exists(path):
+        df = pd.read_csv(path)
+    
+    return df
+
+def main():
+    try:
+        dump_trash = servo.DumpTrash()
+        dist_sensor = sensor.DistanceSensor()
+        ir_sensor = sensor.IRSensor()
+        picam = camera.Camera()
+        oled_screen = oled.Oled()
+        img_classifier = classify.ImageClassifier(path = "model")
         
-        # Update Status on oled
-        oled.update([("Classifying...", 0, 8)])
+        IMG_DIM = img_classifier.get_input_shape()
+    except:
+        print("Something went wrong")
+    else:
+        print("All module loaded")
+
+    # Set up path for prediction results
+    prediction_result_path = "classified-image"
+    img_path = f"{prediction_result_path}/images"
+    csv_path = f"{prediction_result_path}/img_metadata.csv"
+    
+    # Set up dataframe to save image's informations
+    df = load_dataframe(csv_path)
+    
+    while True:
+        #time1 = time.time()
+        #oled_screen.display_hardware_info()
         
-        # Check if there is a hand in a way before classifying
-        while sensor.check_ir() :
+        if dist_sensor.check_object() or ir_sensor.check_object():
+            print("Object Detected!")
+            time.sleep(1)
+            img = picam.capture_img().convert('RGB')
+            
+            img = classify.preprocess_img(img, IMG_DIM)
+            
+            result = img_classifier.classify_image(img)
+            
+            oled_update_result(oled_screen, result)
+            
+            dump_trash_category(dump_trash, result['category'])
+            
+            save_prediction_result(img, result, df, img_path, csv_path)
+            
             time.sleep(0.5)
         
-        # Get Image
-        image = camera.capture_img().convert('RGB')
+            dist_sensor.update_default()
+            
+            time.sleep(0.5)
 
-        # Predict Image Class
-        image = classify.preprocessImg(image, (224,224))
-        category, sub_category, prob, classification_time = classify.classify_image(image)
-
-        # Save classified image on folders
-        image_path = "classified-image"
-
-        if not os.path.exists(image_path) :
-            os.makedirs(image_path)
-
-        save_img_path = f"{image_path}/{category}/{sub_category}"
-        if not os.path.exists(save_img_path):
-            os.makedirs(save_img_path)
-
-        # File increment
-        i = 0
-        while glob.glob(f"{save_img_path}/{sub_category}({i})*.jpeg"):
-            i += 1
-
-        # Save Image
-        image.save(f"{save_img_path}/{sub_category}({i})_{prob:.2f}.jpeg")
-        print(f"{category}, {sub_category}, {prob}, {classification_time}")
-        oled.update([(category, 0, 0), (f"{prob*100:.2f}%", 80, 0), (f"{classification_time*1000} ms", 0, 16)])
+        time.sleep(0.1)
         
-        if category == 'B3' :
-            servo.dump_trash(pos = 'front')
-        elif category == 'Daur Ulang':
-            servo.dump_trash(pos = 'front_right')
-        elif category == 'Organik':
-            servo.dump_trash(pos = 'back_right')
-        elif category == 'Residu':
-            servo.dump_trash(pos = 'back_left')
-        elif category == 'Guna Ulang':
-            servo.dump_trash(pos = 'front_left')
+        #print(np.round(time.time() - time1, 3))
         
-        # Wait before another read
-        time.sleep(1)
-        sensor.update_default()
+if __name__ == "__main__":
+    main()
